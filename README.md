@@ -1,4 +1,4 @@
-# Kafka CentOS virtual cluster
+# Kafka CentOS cluster deployment
 
 Use Ansible playbook to create Kafka cluster on remote machines.
 
@@ -25,7 +25,7 @@ sudo apt-get install ansible
 
 Make sure you are running Ansible v1.7.2 or higher with `ansible --version`.
 
-[Ansible](http://docs.ansible.com/intro_installation.html).
+[Ansible documentation](http://docs.ansible.com/intro_installation.html).
 
 ### 2. Clone this repo
 

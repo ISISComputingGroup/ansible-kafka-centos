@@ -4,8 +4,9 @@ zk:
   data_dir: /var/lib/zookeeper
   install_dir: "/etc"
   tick_time: 2000
-zk_cluster_info: "{{ vagrant_zk_cluster_info }}"
-# If not using Vagrant,
+zk_cluster_info:
+  zk-node-1: # TODO replace with  real hostname of ZK machine
+    zk_id: 1
 # Should be a list of node hostnames to node info
 # Example:
 # zk_cluster_info:

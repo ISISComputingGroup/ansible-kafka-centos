@@ -7,6 +7,8 @@ The main differences between this and [Wirbelsturm](https://github.com/miguno/wi
 - Focus on Ansible and playbooks that can be used to provision Zk + Kafka w/o Vagrant
 - No Storm provisioning as of writing
 
+This repository is forked from `git@github.com:lloydmeta/ansible-kafka-cluster.git`. It has since been updated to use the latest version of Kafka (0.9.0.1).
+
 ## Usage
 
 Depending on your hardware and network connection, the script execution might take between 10-20 minutes.
@@ -28,7 +30,7 @@ For other systems, checkout the installation pages of [Vagrant](https://docs.vag
 ### 2. Clone this repo
 
 ```
-git clone git@github.com:lloydmeta/ansible-kafka-cluster.git
+git clone git@github.com:ScreamingUdder/ansible-kafka-centos.git
 cd ansible-kafka-cluster
 ```
 
@@ -101,4 +103,3 @@ bin/kafka-topics.sh --describe --zookeeper zk-node-1:2181 --topic my-replicated-
 Feel free to send and consume messages while the node is down. Note though, that you may have to restart some of the shell-based consumer/producers that are already running because they don't work well in disaster situations..
 
 ### 8. Bring the Kafka node back up, put it to sleep, etc.
-

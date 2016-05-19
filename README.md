@@ -9,6 +9,8 @@ The main differences between this and [Wirbelsturm](https://github.com/miguno/wi
 
 This repository is forked from `git@github.com:lloydmeta/ansible-kafka-cluster.git`. It has since been updated to use the latest version of Kafka (0.9.0.1), vagrant removed, and other tweaks for our use.
 
+For setting up ssh enabled users, see https://gist.github.com/matthew-d-jones/f25cdc61964716fdeda4d34a767b4166
+
 ## Usage
 
 ### 1. Install Ansible on your machine

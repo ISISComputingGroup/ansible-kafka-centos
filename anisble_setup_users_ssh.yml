@@ -1,7 +1,7 @@
 --
 - hosts: all
   user: root
-  vars: 
+  vars:
     createuser: 'username'
     createpassword: 'myamazingpassword'
     publickey_path: '/home/username/.ssh/id_rsa.pub'
@@ -9,18 +9,18 @@
   - name: Setup | create user
     command: useradd -m {{ createuser }} creates=/home/{{ createuser }}
     sudo: true
- 
+
   - name: Setup | set user password
     shell: usermod -p $(echo '{{ createpassword }}' | openssl passwd -1 -stdin) {{ createuser }}
     sudo: true
- 
+
   - name: Setup | authorized key upload
     authorized_key: user={{ createuser }}
       key="{{ lookup('file', {{publickey_path}}) }}"
       path='/home/{{ createuser }}/.ssh/authorized_keys'
       manage_dir=yes
     sudo: true
- 
+
   - name: Sudoers | update sudoers file and validate
     lineinfile: "dest=/etc/sudoers
       insertafter=EOF
@@ -31,4 +31,3 @@
 
 # Run this playbook with:
 # ansible-playbook --inventory-file=hosts.ini ansible_setup_users_ssh.yml
-

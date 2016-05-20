@@ -53,7 +53,7 @@ These should correspond to the hostnames given in `roles/kafka/defaults/main.yml
 
 ### 4. Prepare cluster machines
 
-Cluster machines should have CentOS installed and sshd running. The playbook expects to have `root` access.
+Cluster machines should have CentOS installed and sshd running. The playbook expects to have access over ssh.
 
 ### 5. Run the playbook!
 

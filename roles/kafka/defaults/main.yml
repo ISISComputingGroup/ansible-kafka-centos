@@ -9,11 +9,11 @@ kafka:
 zk_hosts: "{{ groups['zk'] }}" # This does not have to be every Zookeeper host
 zk_client_port: 2181
 kafka_cluster_info:
-  kafka-node-1: # TODO replace with real hostnames
+  sakura: # TODO replace with real hostnames
     broker_id: 1
-  kafka-node-2:
+  tenten:
     broker_id: 2
-  kafka-node-3:
+  hinata:
     broker_id: 3
 # Should be a list of node hostnames to node info
 # Example:

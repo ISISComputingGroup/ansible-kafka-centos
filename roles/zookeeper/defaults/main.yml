@@ -5,7 +5,7 @@ zk:
   install_dir: "/etc"
   tick_time: 2000
 zk_cluster_info:
-  zk-node-1: # TODO replace with  real hostname of ZK machine
+  ino: # TODO replace with  real hostname of ZK machine
     zk_id: 1
 # Should be a list of node hostnames to node info
 # Example:

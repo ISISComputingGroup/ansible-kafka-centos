@@ -1,10 +1,9 @@
---
 - hosts: all
   user: root
   vars:
-    createuser: 'username'
-    createpassword: 'myamazingpassword'
-    publickey_path: '/home/username/.ssh/id_rsa.pub'
+    createuser: 'jonmd'
+    createpassword: 'konoha'
+    publickey_path: '/home/jonmd/.ssh/id_rsa.pub'
   tasks:
   - name: Setup | create user
     command: useradd -m {{ createuser }} creates=/home/{{ createuser }}

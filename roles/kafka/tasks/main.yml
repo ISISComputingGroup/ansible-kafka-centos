@@ -63,12 +63,12 @@
   notify: restart kafka
   tags: kafka
 
-#- name: systemd start script
-#  template:
-#    src: kafka-systemd.j2
-#    dest: /etc/systemd/system/kafka.service
-#    owner: root
-#    group: root
-#    mode: 644
-#  notify: start kafka
-#  tags: kafka
+- name: systemd start script
+  template:
+    src: kafka-systemd.j2
+    dest: /etc/systemd/system/kafka.service
+    owner: root
+    group: root
+    mode: 644
+  notify: start kafka
+  tags: kafka

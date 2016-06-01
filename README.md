@@ -58,7 +58,5 @@ Cluster machines should have CentOS installed and sshd running. The playbook exp
 ### 5. Run the playbook!
 
 ```
-ansible-playbook site.yml
+ansible-playbook --inventory-file=hosts.ini site.yml
 ```
-
-To ssh in and check everything is running as expected, you may want to use `anisble_setup_users_ssh.yml` to set up a user account and ssh access on all machines.

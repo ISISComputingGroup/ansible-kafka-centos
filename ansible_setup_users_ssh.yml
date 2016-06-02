@@ -2,7 +2,7 @@
   user: root
   vars:
     createuser: 'jonmd'
-    createpassword: 'konoha'
+    createpassword: 'mypassword'
     publickey_path: '/home/jonmd/.ssh/id_rsa.pub'
   tasks:
   - name: Setup | create user

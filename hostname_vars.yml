@@ -1,0 +1,14 @@
+# Variables are pulled in from here if vagrant is not used
+vagrant_kafka_cluster_info :
+  sakura:
+    broker_id: 1
+  tenten:
+    broker_id: 2
+  hinata:
+    broker_id: 3
+
+vagrant_zk_cluster_info:
+  ino:
+    zk_id: 1
+
+vagrant_zk_client_port: 2181

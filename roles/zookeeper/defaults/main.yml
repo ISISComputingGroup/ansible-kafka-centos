@@ -4,6 +4,4 @@ zk:
   data_dir: /var/lib/zookeeper
   install_dir: "/etc"
   tick_time: 2000
-zk_cluster_info: "{{ vagrant_zk_cluster_info }}"
-#  ino:
-#    zk_id: 1
+zk_cluster_info: ""{{ vagrant_zk_cluster_info }}"

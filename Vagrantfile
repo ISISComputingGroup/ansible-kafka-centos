@@ -50,15 +50,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Note that zk_id must be unique for each host in the cluster. It should ideally not change
   # throughout the lifetime of the Zookeeper installation on a given machine.
   zk_cluster_info = {
-    'ino' => { :zk_id => 1 },
+    'zk-node-1' => { :zk_id => 1 },
   }
 
   # Note that broker_id must be unique for each host in the cluster. It should ideally not change
   # throughout the lifetime of the Kafka installation on a given machine.
   kafka_cluster_info = {
-    'sakura' => { :broker_id => 1 },
-    'tenten' => { :broker_id => 2 },
-    'hinata' => { :broker_id => 3 }
+    'kafka-node-1' => { :broker_id => 1 },
+    'kafka-node-2' => { :broker_id => 2 },
+    'kafka-node-3' => { :broker_id => 3 }
   }
 
   ## ------- These need to be set in group vars if using Ansible w/o Vagrant ------- >

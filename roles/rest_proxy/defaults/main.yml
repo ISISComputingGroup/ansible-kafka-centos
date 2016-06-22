@@ -1,0 +1,4 @@
+rest_proxy:
+  version: 3.0.0
+  mirror: https://github.com/confluentinc/kafka-rest/archive/v
+  install_dir: "/etc"

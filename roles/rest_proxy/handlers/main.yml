@@ -1,0 +1,5 @@
+- name: start rest_proxy
+  service: name=rest_proxy state=started enabled=yes
+
+- name: restart rest_proxy
+  service: name=rest_proxy state=restarted enabled=yes

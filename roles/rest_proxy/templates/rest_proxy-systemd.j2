@@ -1,0 +1,14 @@
+[Unit]
+Description=KafkaRESTProxy
+Before=
+After=network.target
+
+[Service]
+Type=forking
+User=zookeeper
+Environment=JAVA_HOME=/usr/local/java8
+ExecStart={{ rest_proxy_dir }}/bin/kafka-rest-start
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

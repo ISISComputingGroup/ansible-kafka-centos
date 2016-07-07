@@ -40,6 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   zk_port = 2181
   kafka_vm_memory_mb = 512
   kafka_port = 9092
+  jmx_port = 9990
 
   # < ------- These need to be set in group vars if using Ansible w/o Vagrant -------
 
@@ -85,7 +86,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       :ip => kafka_ips[idx],
       :memory => kafka_vm_memory_mb,
       :client_port => kafka_port,
-      :client_forward_to => kafka_port + idx )]
+      :client_forward_to => kafka_port + idx,
+      :jmx_port => jmx_port,
+      :jmx_forward_to => jmx_port + idx )]
   }]
 
   total_cluster = zk_cluster.merge(kafka_cluster)
@@ -94,6 +97,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.define short_name do |host|
       host.vm.network :forwarded_port, guest: info[:client_port], host: info[:client_forward_to]
+      if (info[:jmx_forward_to] != nil)
+        host.vm.network :forwarded_port, guest: info[:jmx_port], host: info[:jmx_forward_to]
+      end
       host.vm.network :private_network, ip: info[:ip]
       host.vm.hostname = short_name
       host.vm.provider :virtualbox do |vb|
@@ -115,7 +121,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
              accept_oracle_licence: accept_oracle_licence,
              vagrant_zk_client_port: zk_port,
              vagrant_zk_cluster_info: zk_cluster_info,
-             vagrant_kafka_cluster_info: kafka_cluster_info
+             vagrant_kafka_cluster_info: kafka_cluster_info,
+             vagrant_jmx_port: jmx_port
            }
          end
        end

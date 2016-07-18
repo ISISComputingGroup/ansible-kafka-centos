@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=kafka
 Environment='JAVA_HOME=/usr/local/java8' 'JMX_PORT={{ vagrant_jmx_port }}'
-Environment='KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.rmi.port={{ vagrant_jmx_port }}'
+Environment='KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.rmi.port={{ vagrant_jmx_port }} '
 CHDIR= {{ kafka.data_dir }}
 ExecStart={{ kafka_dir }}/bin/kafka-server-start.sh {{ kafka_dir }}/config/real-server.properties
 Restart=on-abort

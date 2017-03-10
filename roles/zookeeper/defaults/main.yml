@@ -1,5 +1,5 @@
 zk:
-  version: 3.4.8
+  version: 3.4.9
   mirror: http://mirror.ox.ac.uk/sites/rsync.apache.org
   data_dir: /var/lib/zookeeper
   install_dir: "/etc"

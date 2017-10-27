@@ -58,7 +58,11 @@ If you are deploying to physical machines then put the required host names in `h
 
 For deployment to virtual machines, the configuration is in the `Vagrantfile`.
 
-### 5. Run the playbook!
+### 5. Change version numbers
+
+If you want different versions of Java, Kafka or Zookeeper then change the variables in the `defaults/main.yml` file for each role. Unfortunately for Java it is also required to get a hash for the download url. You'll have to get this by going to the download site, accepting the license agreement and then copying it from the download link of the appropriate version.
+
+### 6. Run the playbook!
 
 To deploy to physical machines use:
 ```

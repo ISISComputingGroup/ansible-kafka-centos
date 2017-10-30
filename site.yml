@@ -13,3 +13,7 @@
 - hosts: kafka_manager
   roles:
     - kafka_manager
+
+- hosts: docker
+  roles:
+    - docker

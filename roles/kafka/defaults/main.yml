@@ -2,7 +2,7 @@ kafka:
   version: 0.11.0.1
   scala_version: 2.12
   mirror: http://mirrors.ukfast.co.uk/sites/ftp.apache.org
-  data_dir: /var/lib/kafka
+  data_dir: /data/kafka
   install_dir: "/etc"
 # This does not have to be every Zookeeper host, but the more the better
 #  by default, we assume this is run at the same time as Zookeeper provisioning

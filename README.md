@@ -6,8 +6,9 @@ The main differences between this and [Wirbelsturm](https://github.com/miguno/wi
 
 - Focus on Ansible and playbooks that can be used to provision Zk + Kafka w/o Vagrant
 - No Storm provisioning
+- Deploys [Kafka-Manager](https://github.com/yahoo/kafka-manager)
 
-This repository is forked from `git@github.com:lloydmeta/ansible-kafka-cluster.git`. It has since been updated to use the latest version of Kafka (0.9.0.1) and other tweaks for our use.
+This repository is forked from `git@github.com:lloydmeta/ansible-kafka-cluster.git`. It has since been updated to use more a recent version of Kafka, our own broker configuration and also to deploy [Kafka-Manager](https://github.com/yahoo/kafka-manager).
 
 ## Usage
 

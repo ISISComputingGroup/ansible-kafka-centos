@@ -74,6 +74,10 @@ To deploy to physical machines use:
 ```
 ansible-playbook --inventory-file=hosts.ini site.yml
 ```
+It can be useful to ignore your ssh known hosts:
+```
+export ANSIBLE_HOST_KEY_CHECKING=False
+```
 
 To deploy to virtual machines use:
 ```

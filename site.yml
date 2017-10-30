@@ -9,3 +9,7 @@
 - hosts: kafka
   roles:
     - kafka
+
+- hosts: kafka_manager
+  roles:
+    - kafka_manager

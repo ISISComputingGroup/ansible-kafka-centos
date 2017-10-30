@@ -1,0 +1,11 @@
+[Unit]
+Description=Kafka Manager
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Environment=JAVA_HOME=/usr/local/java8 ZK_HOSTS={{ groups['zk'] | join(":{0},".format(vagrant_zk_client_port)) }}:{{ vagrant_zk_client_port }}
+ExecStart={{ kafka_manager_dir }}/bin/kafka-manager
+Type=simple

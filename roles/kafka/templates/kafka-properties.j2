@@ -121,7 +121,7 @@ zookeeper.connect={{ zk_hosts | join(":{0},".format(zk_client_port)) }}:{{ zk_cl
 zookeeper.connection.timeout.ms=6000
 
 # Enable deletion of topics
-delete.topic.enable=true
+delete.topic.enable=false
 
 # Forbid clients to automatically create topics
 auto.create.topics.enable=false

@@ -1,0 +1,19 @@
+- name: create group
+  group:
+    name: grafana
+    state: present
+
+- name: create user
+  user:
+    name: grafana
+    group: grafana
+
+- name: create grafana storage directory
+  file: path=/data/grafana state=directory owner=grafana group=grafana mode=0755
+
+- name: Create a Grafana container
+  docker_container:
+    name: grafana
+    image: grafana/grafana:4.6.0
+    ports:
+      - "3000:3000"

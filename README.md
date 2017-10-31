@@ -24,7 +24,7 @@ For Ubuntu, use apt:
 sudo apt-get install ansible
 ```
 
-Make sure you are running Ansible v1.7.2 or higher with `ansible --version`.
+Make sure you are running Ansible v2.1 or higher with `ansible --version`.
 [Ansible documentation](http://docs.ansible.com/intro_installation.html).
 
 If deploying to virtual machines then also install Virtualbox, Vagrant and the vagrant-hostmanager plugin. For example

@@ -15,5 +15,5 @@
   tags: docker
 
 - name: Make sure Docker is running
-  service: name=docker state=running
+  service: name=docker state=started
   tags: docker

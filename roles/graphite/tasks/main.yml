@@ -1,0 +1,29 @@
+- name: create graphite storage directory
+  file: path=/data/graphite state=directory owner=root group=root mode=0755
+
+- name: Copy config file to remote machine
+  copy:
+    src: storage-aggregation.conf
+    dest: /data/graphite/storage-aggregation.conf
+    
+- name: Copy config file to remote machine
+  copy:
+    src: storage-schemas.conf
+    dest: /data/graphite/storage-schemas.conf
+
+- name: Create a data container
+  docker_container:
+    name: graphite
+    image: graphiteapp/graphite-statsd:1.0.2-1
+    ports:
+      - "80:80"
+      - "2003:2003"
+      - "2004:2004"
+      - "2023:2023"
+      - "2024:2024"
+      - "8125:8125/udp"
+      - "8126:8126"
+    volumes:
+      - /data/graphite/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf
+      - /data/graphite/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf
+      - /data/graphite/storage:/opt/graphite/storage

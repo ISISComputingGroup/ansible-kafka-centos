@@ -6,14 +6,82 @@
   easy_install: name=pip
   tags: docker
 
-- name: Install docker-py
-  pip: name=docker-py
-  tags: docker
+- name: dependencies are installed
+  become: yes
+  yum:
+    name:
+      - device-mapper-persistent-data
+      - lvm2
+    state: present
+  when: ansible_distribution == "CentOS"
 
-- name: Install Docker
-  yum: name=docker state=latest
-  tags: docker
+- name: Docker yum repositories are set up
+  become: yes
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+  when: ansible_distribution == "CentOS"
 
-- name: Make sure Docker is running
-  service: name=docker state=started
-  tags: docker
+- name: package is installed
+  become: yes
+  yum:
+    name: docker-ce-17.09.0.ce
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "CentOS"
+
+- name: docker data directory exists
+  become: yes
+  file:
+    path: "{{ docker_data_root }}"
+    state: directory
+  when: ansible_distribution == "CentOS"
+
+- name: docker configuration directory exists
+  become: yes
+  file:
+    path: /etc/docker
+    state: directory
+  when: ansible_distribution == "CentOS"
+
+- name: daemon configuration file is installed
+  become: yes
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+  notify:
+    - restart docker
+  when: ansible_distribution == "CentOS"
+
+- name: service configuration directory exists
+  become: yes
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+  when: ansible_distribution == "CentOS" and http_proxy != ""
+
+- name: sevice configuration file is installed
+  become: yes
+  template:
+    src: http-proxy.conf.j2
+    dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+  notify:
+    - restart docker
+  when: ansible_distribution == "CentOS" and http_proxy != ""
+
+- name: service is enabled and started
+  become: yes
+  service:
+    name: docker
+    enabled: yes
+    state: started
+  when: ansible_distribution == "CentOS"
+
+- name: python api client is installed
+  become: yes
+  pip:
+    name: docker-py
+    state: present
+    extra_args: "--proxy={{ http_proxy }}"
+  when: ansible_distribution == "CentOS"
+

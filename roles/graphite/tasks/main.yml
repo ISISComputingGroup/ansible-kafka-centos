@@ -1,3 +1,7 @@
+- name: disable firewalld
+  service: name=firewalld state=stopped enabled=no
+  ignore_errors: True  #when firewalld is stopped
+
 - name: create group
   group:
     name: graphite
@@ -44,4 +48,6 @@
       - "8125:8125/udp"
       - "8126:8126"
     volumes:
-      - /data/graphite/conf:/opt/graphite/conf
+      - /data/graphite/conf/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf
+      - /data/graphite/conf/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf
+      - /data/graphite/storage:/opt/graphite/storage

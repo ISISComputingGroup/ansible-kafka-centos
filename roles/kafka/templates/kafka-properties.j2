@@ -120,6 +120,8 @@ zookeeper.connect={{ zk_hosts | join(":{0},".format(zk_client_port)) }}:{{ zk_cl
 # Timeout in ms for connecting to zookeeper
 zookeeper.connection.timeout.ms=6000
 
+############### Other Topic/Partition Config ########################
+
 # Enable deletion of topics
 delete.topic.enable=false
 
@@ -127,3 +129,10 @@ delete.topic.enable=false
 auto.create.topics.enable=false
 
 default.replication.factor=3
+
+#######################  Metrics Reporting ##########################
+
+kafka.metrics.reporters=com.criteo.kafka.KafkaGraphiteMetricsReporter
+kafka.graphite.metrics.reporter.enabled=true
+kafka.graphite.metrics.host={{ graphite_host }}
+kafka.graphite.metrics.port=2003

@@ -66,6 +66,14 @@
   notify: restart kafka
   tags: kafka
 
+- name: install wget
+  yum: name=wget state=present
+
+- name: Copy Kafka-Graphite reporter to remote machine
+  copy:
+    src: kafka-graphite-1.0.5.jar
+    dest: /etc/{{ kafka_name }}/libs/kafka-graphite-1.0.5.jar
+
 - name: systemd start script
   template:
     src: kafka-systemd.j2

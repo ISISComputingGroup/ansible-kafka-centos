@@ -11,11 +11,16 @@
 - name: create grafana storage directory
   file: path=/data/grafana state=directory owner=grafana group=grafana mode=0755
 
+- name: create grafana dashboard directory
+  file: path=/data/grafana/dashboards state=directory owner=grafana group=grafana mode=0755
+  
 - name: Create a Grafana container
   docker_container:
     name: grafana
     image: grafana/grafana:4.6.0
+    env: {GF_DASHBOARDS_JSON_ENABLED: true, GF_DASHBOARDS_JSON_PATH: /dashboards}
     ports:
       - "3000:3000"
     volumes:
       - /data/grafana:/var/lib/grafana
+      - /data/grafana/dashboards:/dashboards

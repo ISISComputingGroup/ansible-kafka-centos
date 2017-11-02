@@ -39,6 +39,7 @@
   docker_container:
     name: graphite
     image: graphiteapp/graphite-statsd:1.0.2-1
+    restart_policy: always
     ports:
       - "80:80"
       - "2003:2003"

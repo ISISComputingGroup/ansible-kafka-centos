@@ -1,0 +1,3 @@
+influxdb_ip_address
+influxdb_database_name: 'kafka_metrics'
+retention_duration: '1w'

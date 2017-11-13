@@ -1,19 +1,33 @@
-- hosts: all
-  roles:
-    - { role: java, when: accept_oracle_licence }
-
 - hosts: zk
   roles:
+    - java
     - zookeeper
+  serial: 1
 
 - hosts: kafka
+  gather_facts: yes
   roles:
+    - java
     - kafka
+  serial: 1
 
 - hosts: kafka_manager
   roles:
+    - java
     - kafka_manager
 
-- hosts: docker
+- hosts: graphite
   roles:
     - docker
+    - graphite
+
+- hosts: grafana
+  roles:
+    - docker
+    - grafana
+
+- hosts: collectd
+  gather_facts: yes
+  roles:
+    - docker
+    - collectd

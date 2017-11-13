@@ -9,10 +9,10 @@
     group: grafana
 
 - name: create grafana storage directory
-  file: path=/data/grafana state=directory owner=grafana group=grafana mode=0755
+  file: path=/data/grafana state=directory owner=grafana group=grafana mode=0766
 
 - name: create grafana dashboard directory
-  file: path=/data/grafana/dashboards state=directory owner=grafana group=grafana mode=0755
+  file: path=/data/grafana/dashboards state=directory owner=grafana group=grafana mode=0766
   
 - name: Create a Grafana container
   docker_container:

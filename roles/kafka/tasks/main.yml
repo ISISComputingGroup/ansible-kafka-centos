@@ -83,3 +83,9 @@
     mode: 644
   notify: start kafka
   tags: kafka
+
+- name: restart kafka service after telling systemd to reread configs
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: kafka

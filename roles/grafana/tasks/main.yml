@@ -19,6 +19,7 @@
     name: grafana
     image: grafana/grafana:4.6.0
     restart_policy: always
+    restart: yes
     env: {GF_DASHBOARDS_JSON_ENABLED: true, GF_DASHBOARDS_JSON_PATH: /dashboards}
     ports:
       - "3000:3000"

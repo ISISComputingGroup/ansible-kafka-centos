@@ -11,6 +11,6 @@
       HOST_NAME: "{{ ansible_hostname }}"
       GRAPHITE_HOST: "{{ graphite_host }}"
       GRAPHITE_PREFIX: "collectd_"
-      COLLECT_INTERVAL: 10
+      COLLECT_INTERVAL: 120
     volumes:
       - /data:/hostfs:ro

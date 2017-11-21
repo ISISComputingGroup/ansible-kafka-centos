@@ -10,7 +10,10 @@ Environment='KAFKA_HEAP_OPTS=-Xmx16G -Xms16G'
 Environment='KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.rmi.port={{ jmx_port }} '
 CHDIR= {{ kafka.data_dir }}
 ExecStart={{ kafka_dir }}/bin/kafka-server-start.sh {{ kafka_dir }}/config/real-server.properties
-Restart=on-abort
+Restart=always
+RestartSec=30
+StartLimitInterval=120
+StartLimitBurst=5
 
 [Install]
 WantedBy=multi-user.target

@@ -10,7 +10,6 @@ RUN apk add --no-cache openssl-dev curl git build-base bash tar wget python yajl
     && rm -rf kafkacat \
     && apk del openssl-dev curl git build-base bash tar wget python yajl-dev cmake coreutils
 
-COPY forwarder_config.json /
 COPY launch.sh /
 
 CMD ["./launch.sh"]

@@ -8,8 +8,11 @@ RUN apk add --no-cache openssl-dev curl git build-base bash tar wget python yajl
     && make install \
     && cd .. \
     && rm -rf kafkacat \
-    && apk del openssl-dev curl git build-base bash tar wget python yajl-dev cmake coreutils
+    && apk del openssl-dev curl git build-base tar wget python yajl-dev cmake coreutils
 
-COPY launch.sh /
+RUN mkdir launchconfig
+WORKDIR /launchconfig
+COPY launch.sh /launchconfig/
 
+ENTRYPOINT ["/bin/bash", "-c"]
 CMD ["./launch.sh"]

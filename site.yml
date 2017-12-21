@@ -31,3 +31,9 @@
   roles:
     - docker
     - collectd
+
+- hosts: conan
+  gather_facts: yes
+  roles:
+    - docker
+    - conan

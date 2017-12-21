@@ -1,0 +1,31 @@
+[server]
+jwt_secret: ApquzsAxfiskYGFMgaTVDKfe
+jwt_expire_minutes: 120
+
+ssl_enabled: False
+port: 9300
+public_port:
+host_name: {{ ansible_hostname }}
+
+store_adapter: disk
+authorize_timeout: 1800
+
+# Just for disk storage adapter
+disk_storage_path: /var/lib/conan
+disk_authorize_timeout: 1800
+
+updown_secret: MyiTWBWrwumSCpHpoANuyyhN
+
+[write_permissions]
+# "opencv/2.3.4@lasote/testing": default_user,default_user2
+*/*@*/*: matthew-d-jones, jack-harper
+
+[read_permissions]
+# opencv/1.2.3@lasote/testing: default_user default_user2
+# By default all users can read all blocks
+*/*@*/*: *
+
+[users]
+matthew-d-jones: pass
+jack-harper: pass
+matt-clarke: pass

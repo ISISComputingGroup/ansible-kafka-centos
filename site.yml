@@ -11,20 +11,14 @@
     - kafka
   serial: 1
 
-- hosts: kafka_manager
-  roles:
-    - java
-    - kafka_manager
-
-- hosts: graphite
+- hosts: monitoring
   roles:
     - docker
     - graphite
-
-- hosts: grafana
-  roles:
-    - docker
     - grafana
+    - flatbuffers_rest
+    - java
+    - kafka_manager
 
 - hosts: collectd
   gather_facts: yes

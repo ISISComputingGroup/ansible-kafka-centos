@@ -11,7 +11,7 @@
 - name: Create a Flatbuffers REST container
   docker_container:
     name: flatbuffers_rest
-    image: screamingudder/flatbuffers-rest:574dbb7
+    image: screamingudder/flatbuffers-rest:5ff3afd
     restart_policy: always
     restart: yes
     ports:

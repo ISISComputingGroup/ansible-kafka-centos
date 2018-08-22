@@ -1,8 +1,8 @@
-jdk8_version: '1.8.0_152'
+jdk8_version: '1.8.0_181'
 jdk8_pkg_version: '8'
-jdk8_pkg_subversion: '152'
-java_build: '16'
-jdk_download_hash: 'aa0333dd3019491ca4f6ddbe78cdb6d0'
+jdk8_pkg_subversion: '181'
+java_build: '13'
+jdk_download_hash: '96a7b8442fe848ef90c96a2fad6ed6d1'
 symlink_to: 'java8'
 src_base_dir: "/tmp"
 accept_oracle_licence: true

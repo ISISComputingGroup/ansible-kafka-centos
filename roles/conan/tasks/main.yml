@@ -1,0 +1,30 @@
+- name: create conan directory
+  file: path=/data/conan state=directory owner=root group=root mode=0766
+  tags: conan
+
+- name: create conan storage directory
+  file: path=/data/conan/data state=directory owner=root group=root mode=0766
+  tags: conan
+
+- name: create conan configuration directory
+  file: path=/data/conan/conf state=directory owner=root group=root mode=0766
+  tags: conan
+
+- name: /data/conan/conf/server.conf
+  template: >
+    src=server.conf.j2
+    dest=/data/conan/conf/server.conf
+    owner=root group=root mode=0644
+  tags: conan
+
+- name: Create conan container
+  docker_container:
+    name: conan-server
+    image: arobasmusic/conan-server:0.27.1
+    restart_policy: always
+    ports:
+      - "9300:9300"
+    volumes:
+      - /data/conan/data:/var/lib/conan
+      - /data/conan/conf:/etc/conan
+  tags: conan

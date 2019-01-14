@@ -1,6 +1,6 @@
 - name: install the latest version of Apache
   yum:
-    name: java-1.8.0-openjdk
+    name: {{ openjdk_package }}
     state: latest
 
 - name: /etc/profile.d/java8.sh

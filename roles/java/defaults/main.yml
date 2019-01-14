@@ -1,12 +1,1 @@
-jdk8_version: '1.8.0_181'
-jdk8_pkg_version: '8'
-jdk8_pkg_subversion: '181'
-java_build: '13'
-jdk_download_hash: '96a7b8442fe848ef90c96a2fad6ed6d1'
 symlink_to: 'java8'
-src_base_dir: "/tmp"
-accept_oracle_licence: true
-
-jdk_version_detail: "{{ jdk8_pkg_version }}u{{ jdk8_pkg_subversion }}-b{{ java_build }}"
-jdk_tarball_file: "jdk-{{ jdk8_pkg_version }}u{{ jdk8_pkg_subversion }}-linux-x64"
-jdk_tarball_url:  "http://download.oracle.com/otn-pub/java/jdk/{{ jdk_version_detail }}/{{ jdk_download_hash }}/{{ jdk_tarball_file }}"

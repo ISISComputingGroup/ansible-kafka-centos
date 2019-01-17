@@ -6,6 +6,6 @@ After=network.target
 WantedBy=multi-user.target
 
 [Service]
-Environment=ZK_HOSTS={{ groups['zk'] | join(":{0},".format(zk_client_port)) }}:{{ zk_client_port }}
+Environment=ZK_HOSTS={{ groups['zk'] | join(":2181,") }}:2181
 ExecStart={{ kafka_manager_dir }}/bin/kafka-manager
 Type=simple

@@ -31,7 +31,7 @@ cd ansible-kafka-centos
 ### 3. Build Kafka-Manager
 
 If deploying Kafka-Manager, the distributable .zip must be placed in the root directory of the repository.
-Instructions for building the distributable are in [Kafka-Manager's README](https://github.com/yahoo/kafka-manager).
+Instructions for building the distributable are in [Kafka-Manager's README](https://github.com/yahoo/kafka-manager). NB, version 1.3.3.22 can only be built with java8.
 
 ### 4. Prepare cluster machines
 

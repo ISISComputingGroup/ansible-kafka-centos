@@ -6,5 +6,5 @@
 - name: /etc/profile.d/java8.sh
   template: >
     src=profile.java8.sh.j2
-    dest=/etc/profile.d/{{  symlink_to  }}.sh
+    dest=/etc/profile.d/openjdk_java8.sh
     owner=root group=root mode=0644

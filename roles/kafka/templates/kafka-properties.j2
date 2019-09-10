@@ -49,7 +49,7 @@ socket.send.buffer.bytes=102400
 socket.receive.buffer.bytes=102400
 
 # The maximum size of a request that the socket server will accept (protection against OOM)
-socket.request.max.bytes=104857600
+socket.request.max.bytes=209715200
 
 ############################# Log Basics #############################
 
@@ -105,8 +105,8 @@ log.retention.check.interval.ms=300000
 
 ############################ Message Size ###########################
 
-replica.fetch.max.bytes=100000000
-message.max.bytes=100000000
+replica.fetch.max.bytes=209715200
+message.max.bytes=209715200
 
 ############################# Zookeeper #############################
 

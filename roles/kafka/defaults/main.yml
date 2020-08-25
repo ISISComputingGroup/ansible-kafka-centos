@@ -1,5 +1,5 @@
 kafka:
-  version: 2.1.0
+  version: 2.6.0
   scala_version: 2.12
   mirror: http://mirror.ox.ac.uk/sites/rsync.apache.org
   data_dir: /data/kafka

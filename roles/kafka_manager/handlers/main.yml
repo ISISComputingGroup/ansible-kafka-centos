@@ -1,5 +1,0 @@
-- name: start kafka-manager
-  service: name=kafka-manager state=started enabled=yes
-
-- name: restart kafka-manager
-  service: name=kafka-manager state=restarted enabled=yes

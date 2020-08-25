@@ -16,9 +16,8 @@
     - docker
     - graphite
     - grafana
-    - flatbuffers_rest
     - java
-    - kafka_manager
+    - akhq
 
 - hosts: collectd
   gather_facts: yes

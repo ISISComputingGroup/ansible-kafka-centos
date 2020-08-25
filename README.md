@@ -49,7 +49,11 @@ If you want different versions of Java, Kafka or Zookeeper then change the varia
 
 If you are deploying a Conan.io server, don't forget to update the secrets and user details in `/roles/conan/templates/server.conf.j2`.
 
-### 8. Run the playbook!
+### 8. Update passwords
+
+If you want to change the default passwords for things like akhq before deploying, do so manually. Do not push these to the git repository!
+
+### 9. Run the playbook!
 
 To deploy use:
 ```

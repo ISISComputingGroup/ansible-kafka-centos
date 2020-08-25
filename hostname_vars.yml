@@ -5,6 +5,8 @@ kafka_cluster_info :
     broker_id: 2
   obito:
     broker_id: 3
+  sarada:
+    broker_id: 4
 
 zk_cluster_info:
   itachi:
@@ -13,6 +15,8 @@ zk_cluster_info:
     zk_id: 2
   obito:
     zk_id: 3
+  sarada:
+    zk_id: 4
 
 zk_client_port: 2181
 

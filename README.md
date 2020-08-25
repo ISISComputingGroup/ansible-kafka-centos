@@ -28,32 +28,27 @@ git clone git@github.com:ScreamingUdder/ansible-kafka-centos.git
 cd ansible-kafka-centos
 ```
 
-### 3. Build Kafka-Manager
-
-If deploying Kafka-Manager, the distributable .zip must be placed in the root directory of the repository.
-Instructions for building the distributable are in [Kafka-Manager's README](https://github.com/yahoo/kafka-manager). NB, version 1.3.3.22 can only be built with java8.
-
-### 4. Prepare cluster machines
+### 3. Prepare cluster machines
 
 Cluster machines should have CentOS installed and sshd running. The playbook expects to have access over ssh to `root`.
 
-### 5. Configure host names
+### 4. Configure host names
 
 If you are deploying to physical machines then put the required host names in `hostname_vars.yml` and `hosts.ini`.
 
-### 6. Change version numbers
+### 5. Change version numbers
 
 If you want different versions of Java, Kafka or Zookeeper then change the variables in the `defaults/main.yml` file for each role.
 
-### 7. Update Conan template
+### 6. Update Conan template
 
 If you are deploying a Conan.io server, don't forget to update the secrets and user details in `/roles/conan/templates/server.conf.j2`.
 
-### 8. Update passwords
+### 7. Update passwords
 
 If you want to change the default passwords for things like akhq before deploying, do so manually. Do not push these to the git repository!
 
-### 9. Run the playbook!
+### 8. Run the playbook!
 
 To deploy use:
 ```

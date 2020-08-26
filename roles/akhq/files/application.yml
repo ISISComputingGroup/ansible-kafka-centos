@@ -27,19 +27,9 @@ akhq:
   # Topic list display options (optional)
   topic:
     retention: 172800000 # default retention period when creating topic
-    partition: 3 #  default number of partition when creating topic
+    partition: 1 #  default number of partition when creating topic
     replication: 3 # default number of replicas when creating topic
-    default-view: HIDE_INTERNAL # default list view (ALL, HIDE_INTERNAL, HIDE_INTERNAL_STREAM, HIDE_STREAM)
-    internal-regexps: # list of regexp to be considered as internal (internal topic can't be deleted or updated)
-      - "^_.*$"
-      - "^.*_schemas$"
-      - "^.*connect-config$"
-      - "^.*connect-offsets$1"
-      - "^.*connect-status$"
-    stream-regexps: # list of regexp to be considered as internal stream topic
-      - "^.*-changelog$"
-      - "^.*-repartition$"
-      - "^.*-rekey$"
+    default-view: ALL # default list view (ALL, HIDE_INTERNAL, HIDE_INTERNAL_STREAM, HIDE_STREAM)
     skip-consumer-groups: false # Skip loading consumer group information when showing topics
 
   # Topic display data options (optional)

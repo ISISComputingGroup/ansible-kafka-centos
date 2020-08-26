@@ -21,7 +21,7 @@
 
 - name: Copy config file to remote machine
   copy:
-    src: storage-aggregation.conf
+    src: application.yml
     dest: /data/akhq/conf/application.yml
     owner: akhq
     group: akhq

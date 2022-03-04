@@ -37,7 +37,7 @@
 
 - name: Zookeeper | Setting internal variable
   set_fact:
-    zk_dir: "{{ zk.install_dir }}/{{ zk_name }}"
+    zk_dir: "{{ zk.install_dir }}/apache-{{ zk_name }}"
   tags: zookeeper
 
 - name: check if tar has been downloaded
@@ -49,13 +49,13 @@
 
 - name: Ensure Zookeeper tar is downloaded
   get_url:
-    url: "{{ zk.mirror }}/zookeeper/{{ zk_name }}/{{ zk_name }}.tar.gz"
+    url: "{{ zk.mirror }}/zookeeper/{{ zk_name }}/apache-{{ zk_name }}.tar.gz"
     dest: /tmp
   tags: zookeeper
   when: zookeeper_tar_downloaded.rc == 1
 
 - name: Ensure tar is extracted
-  command: tar xzf /tmp/{{ zk_name }}.tar.gz chdir="{{ zk.install_dir }}"
+  command: tar xzf /tmp/apache-{{ zk_name }}.tar.gz chdir="{{ zk.install_dir }}"
   tags: zookeeper
 
 # Config and start Zookeeper

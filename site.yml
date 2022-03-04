@@ -17,16 +17,9 @@
     - graphite
     - grafana
     - java
-    - akhq
 
 - hosts: collectd
   gather_facts: yes
   roles:
     - docker
     - collectd
-
-- hosts: conan
-  gather_facts: yes
-  roles:
-    - docker
-    - conan

@@ -1,9 +1,19 @@
-- name: Install python setup tools
-  yum: name=python-setuptools
+- name: Install python 3
+  yum: name=python36
+  tags: docker
+
+- name: Install python 3 devel
+  yum: name=python36-devel
+  tags: docker
+
+- name: Install python 3 setup tools
+  yum: name=python36-setuptools
   tags: docker
 
 - name: Install Pypi
-  easy_install: name=pip
+  easy_install:
+    name: pip
+    executable: easy_install-3.6
   tags: docker
 
 - name: dependencies are installed
@@ -79,8 +89,10 @@
 
 - name: python api client is installed
   become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   pip:
-    name: docker-py
+    name: docker
     state: present
     extra_args: "--proxy={{ http_proxy }}"
   when: ansible_distribution == "CentOS"

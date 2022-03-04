@@ -3,8 +3,8 @@
     name: "{{ openjdk_package }}"
     state: latest
 
-- name: /etc/profile.d/java8.sh
+- name: /etc/profile.d/java11.sh
   template: >
-    src=profile.java8.sh.j2
-    dest=/etc/profile.d/openjdk_java8.sh
+    src=profile.java11.sh.j2
+    dest=/etc/profile.d/openjdk_java11.sh
     owner=root group=root mode=0644

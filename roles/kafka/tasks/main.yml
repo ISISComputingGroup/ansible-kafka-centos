@@ -1,5 +1,4 @@
 - include_vars: hostname_vars.yml
-  when: kafka_cluster_info is not defined
 
 - name: disable firewalld
   service: name=firewalld state=stopped enabled=no

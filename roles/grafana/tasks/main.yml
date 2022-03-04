@@ -13,11 +13,17 @@
 
 - name: create grafana dashboard directory
   file: path=/data/grafana/dashboards state=directory owner=grafana group=grafana mode=0766
+
+- name: create grafana plugins directory
+  file: path=/data/grafana/plugins state=directory owner=grafana group=grafana mode=0766
   
-- name: Create a Grafana container
+- name: Create a Grafana container 
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   docker_container:
     name: grafana
-    image: grafana/grafana:4.6.0
+    image: grafana/grafana:8.4.3
+    user: grafana
     restart_policy: always
     restart: yes
     env: {"GF_DASHBOARDS_JSON_ENABLED": "true", "GF_DASHBOARDS_JSON_PATH": "/dashboards"}
@@ -25,4 +31,5 @@
       - "3000:3000"
     volumes:
       - /data/grafana:/var/lib/grafana
+      - /data/grafana/plugins:/var/lib/grafana/plugins
       - /data/grafana/dashboards:/dashboards

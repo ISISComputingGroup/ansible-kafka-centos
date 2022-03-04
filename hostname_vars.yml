@@ -1,4 +1,4 @@
-kafka_cluster_info :
+kafka_cluster_info:
   itachi:
     broker_id: 1
   sasuke:

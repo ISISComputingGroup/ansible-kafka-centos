@@ -36,9 +36,11 @@
     group: graphite
 
 - name: Create a Graphite container
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   docker_container:
     name: graphite
-    image: graphiteapp/graphite-statsd:1.0.2-1
+    image: graphiteapp/graphite-statsd:1.1.8-8
     restart_policy: always
     ports:
       - "80:80"

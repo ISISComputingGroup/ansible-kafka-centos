@@ -46,7 +46,7 @@ If you are deploying a Conan.io server, don't forget to update the secrets and u
 
 ### 7. Update passwords
 
-If you want to change the default passwords for things like akhq before deploying, do so manually. Do not push these to the git repository!
+If you want to change the default passwords for things before deploying, do so manually. Do not push these to the git repository!
 
 ### 8. Run the playbook!
 

@@ -17,7 +17,6 @@
     - graphite
     - grafana
     - java
-    - akhq
 
 - hosts: collectd
   gather_facts: yes
